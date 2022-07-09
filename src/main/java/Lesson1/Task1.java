@@ -21,13 +21,13 @@ public class Task1 {
         String pathInput = "src/main/java/Lesson1/input.txt";
         String str = FileN.BufferedReader(pathInput);
 
-        if (!str.equalsIgnoreCase("")) {
+        if (str != null) {
             int a = Parse.getNumber(str, 'a');
             int b = Parse.getNumber(str, 'b');
 
             double result = 0;
             try {
-                result = MathN.pow(a, b);
+                result = MathN.PowWithIterWhile(a, b);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
                 result = Math.pow(a, b);
