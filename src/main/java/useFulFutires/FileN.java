@@ -24,7 +24,7 @@ public class FileN {
         catch(Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Не удалось прочитат файл!");
-            return "";
+            return null;
         }
     }
 
@@ -34,7 +34,7 @@ public class FileN {
             fw.write(String.valueOf(str));
             fw.append("\n");
             fw.flush();
-            System.out.println("File Frited");
+            System.out.println("File writed");
         }
         catch (Exception e){
             System.out.println(e.getMessage());
