@@ -1,0 +1,4 @@
+Jul 16, 2022 8:51:52 PM Lesson2.TestLogger main
+WARNING: tEST LOGGING 1
+Jul 16, 2022 8:51:52 PM Lesson2.TestLogger main
+INFO: Test logging 2
