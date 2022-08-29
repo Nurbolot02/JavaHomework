@@ -20,11 +20,14 @@ public class StackCalculator {
         // 1 2 3 * 4 * + 10 5 / * 20 -
 
         //var exp = "20 30 - 10 *".split(" "); // (20-30)*10
-        var exp = "1 2 + 3 *".split(" "); // (1 + 2) * 3
+
+    }
+
+    public static void StackCalculator(String vlaue){
+        var exp = "5 6 * 2 9 - +".split(" "); // (1 + 2) * 3
 
         //var exp = "1 2 3 * +".split(" "); // 1 + 2 * 3
         int res = 0;
-        System.out.println(exp);
 
         Stack<Integer> st = new Stack<>();
         for (int i = 0; i < exp.length; i++) {
