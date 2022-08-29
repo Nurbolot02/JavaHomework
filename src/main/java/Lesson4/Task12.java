@@ -1,5 +1,7 @@
 package Lesson4;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Stack;
 
 public class Task12 {
@@ -15,14 +17,56 @@ public class Task12 {
     public static void main(String[] args) {
         String str = "a+(1*3)";
         System.out.println();
-        System.out.println(isParenthesesPlacement(str));
+        boolean res1;
+        boolean res2;
+        long start, end;
+
+        start = System.nanoTime();
+        res1 = isParenthesesPlacement(str);
+        end = System.nanoTime();
+        System.out.println("time " + (end - start) + " -ms");
+
+
+        start = System.nanoTime();
+        res2 = isParenthesesPlacementMap(str);
+        end = System.nanoTime();
+        System.out.println("time " + (end - start) + " -ms");
+    }
+
+    /**
+     * определяет правильность расстановки скобок в выражении при помощи коллекции МАР.
+     *
+     * @return true or folse
+     */
+    public static boolean isParenthesesPlacementMap(String str) {
+        Stack<Character> placement = new Stack<>();
+        Map<Character, Character> placements = Map.of('(', ')', '{', '}', '[', ']', '<', '>');
+
+        for (int i = 0; i < str.length(); i++) {
+            if (placement.isEmpty() && placements.containsValue(str.charAt(i))) {
+                return false;
+            }
+
+            if (placements.containsKey(str.charAt(i))){
+                placement.add(placements.get(str.charAt(i)));
+            } else if (!placement.empty() && placements.containsValue(str.charAt(i))) {
+                if (placement.pop() == str.charAt(i)) {
+                } else {
+                    return false;
+                }
+            }
+        }
+        if (!placement.empty()) {
+            return false;
+        }
+        return true;
     }
 
     /**
      * определяет правильность расстановки скобок в выражении.
      *
      * @param str
-     * @return true or folse
+     * @return true or false
      */
     public static boolean isParenthesesPlacement(String str) {
         Stack<Character> placement = new Stack<>();
