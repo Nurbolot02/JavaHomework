@@ -1,6 +1,5 @@
 package Lesson4;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
@@ -15,7 +14,7 @@ public class Task12 {
     Пример 6: {a+]}{(d*3)} - ложь
      */
     public static void main(String[] args) {
-        String str = "a+(1*3)";
+        String str = "{a+]}{(d*3)}";
         System.out.println();
         boolean res1;
         boolean res2;
@@ -24,13 +23,13 @@ public class Task12 {
         start = System.nanoTime();
         res1 = isParenthesesPlacement(str);
         end = System.nanoTime();
-        System.out.println("time " + (end - start) + " -ms");
+        System.out.println(str + " " + res1 + " time " + (end - start) + " -ms");
 
 
         start = System.nanoTime();
         res2 = isParenthesesPlacementMap(str);
         end = System.nanoTime();
-        System.out.println("time " + (end - start) + " -ms");
+        System.out.println(str + " " + res2 + " with map time " + (end - start) + " -ms");
     }
 
     /**
@@ -47,7 +46,7 @@ public class Task12 {
                 return false;
             }
 
-            if (placements.containsKey(str.charAt(i))){
+            if (placements.containsKey(str.charAt(i))) {
                 placement.add(placements.get(str.charAt(i)));
             } else if (!placement.empty() && placements.containsValue(str.charAt(i))) {
                 if (placement.pop() == str.charAt(i)) {
